@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Le Tour de France via Instagram</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+	<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.14/themes/css/cartodb.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	     <!-- include cartodb.js library -->
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.14/cartodb.js"></script>
+		<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<!-- include mustache for popup formatting -->
+	<script src="mustache.js"></script>
+	
+		
+    </head>
+  <body>
+  
+  <div id="map"></div>  
+  <div id="leftBkg"></div>
+  <div id="overlay"></div> 
+    
+  <div class="left">
+      <div id="title"></div>
+      <p>Click on a stage to zoom in to its start location. Click on an Instagram point and admire the captures.</p>
+      <div id="legendBox">
+        <ul>
+          <li>Stage Locations</li>
+          <li>Instagram Photos by Posting Location</li>
+         </ul>
+      </div>
+	<p>The data is hosted on <a href="http://cartodb.com">CartoDB</a><br> and was gathered with reference to Le Tour de France's <a href="http://www.letour.fr/us/">stage updates</a> <br> and the use of<a href="http://www.geocreepy.com/"> cree.py</a> open source software. </p>
+      <p>This map was developed using the CartoDB JavaScript library, <a href="https://github.com/CartoDB/cartodb.js">Cartodb.js</a> <br> and uses the lovely <a href="http://thunderforest.com/">Thunderforest</a> Open Street Map Tile. </p>  
+    </div>
+	
+  <div id="pointTT">
+      <p></p>
+  </div>
+  
+  <!-- infowindow customization -->
+	<script type="infowindow/html" id="infowindow_template">
+  <div class="cartodb-popup">
+  <a href="#close" class="cartodb-popup-close-button close">x</a>
+  <div class="cartodb-popup-content-wrapper">
+    <div class="cartodb-popup-cont">
+      <p><img width="188px" src="{{image_url}}" /></p>
+      <h4>username</h4>
+      <p>{{username}}</p>
+    </div>
+  </div>
+  <div class="cartodb-popup-tip-container"></div>
+</div> 
+</script>
